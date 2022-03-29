@@ -325,4 +325,153 @@ namespace ET
 
 	}
 
+	[ResponseType(nameof(L2A_LoginAccountResponse))]
+	[Message(InnerOpcode.A2L_LoginAccountRequest)]
+	[ProtoContract]
+	public partial class A2L_LoginAccountRequest: Object, IActorRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public long AccountId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.L2A_LoginAccountResponse)]
+	[ProtoContract]
+	public partial class L2A_LoginAccountResponse: Object, IActorResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+	}
+
+	[ResponseType(nameof(G2L_DisconnectGateUnit))]
+	[Message(InnerOpcode.L2G_DisconnectGateUnit)]
+	[ProtoContract]
+	public partial class L2G_DisconnectGateUnit: Object, IActorRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public long AccountId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2L_DisconnectGateUnit)]
+	[ProtoContract]
+	public partial class G2L_DisconnectGateUnit: Object, IActorResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+	}
+
+	[ResponseType(nameof(R2A_GetRealmKey))]
+	[Message(InnerOpcode.A2R_GetRealmKey)]
+	[ProtoContract]
+	public partial class A2R_GetRealmKey: Object, IActorRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public long AccountId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.R2A_GetRealmKey)]
+	[ProtoContract]
+	public partial class R2A_GetRealmKey: Object, IActorResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+		[ProtoMember(1)]
+		public string RealmKey { get; set; }
+
+	}
+
+	[ResponseType(nameof(G2R_GetLoginGateKey))]
+	[Message(InnerOpcode.R2G_GetLoginGateKey)]
+	[ProtoContract]
+	public partial class R2G_GetLoginGateKey: Object, IActorRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public long AccountId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2R_GetLoginGateKey)]
+	[ProtoContract]
+	public partial class G2R_GetLoginGateKey: Object, IActorResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+		[ProtoMember(1)]
+		public string GateSessionKey { get; set; }
+
+	}
+
+	[ResponseType(nameof(L2G_AddLoginRecord))]
+	[Message(InnerOpcode.G2L_AddLoginRecord)]
+	[ProtoContract]
+	public partial class G2L_AddLoginRecord: Object, IActorRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public long AccountId { get; set; }
+
+		[ProtoMember(2)]
+		public int ServerId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.L2G_AddLoginRecord)]
+	[ProtoContract]
+	public partial class L2G_AddLoginRecord: Object, IActorResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+	}
+
 }

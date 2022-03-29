@@ -7,12 +7,16 @@ namespace ET
     public partial class StartSceneConfigCategory
     {
         public MultiMap<int, StartSceneConfig> Gates = new MultiMap<int, StartSceneConfig>();
-        
+
+        public Dictionary<int, StartSceneConfig> Realms = new Dictionary<int, StartSceneConfig>();//Realm网关负载均衡服务器的字典数据
+
         public MultiMap<int, StartSceneConfig> ProcessScenes = new MultiMap<int, StartSceneConfig>();
         
         public Dictionary<long, Dictionary<string, StartSceneConfig>> ZoneScenesByName = new Dictionary<long, Dictionary<string, StartSceneConfig>>();
 
         public StartSceneConfig LocationConfig;
+
+        public StartSceneConfig LoginCenterConfig;//登录中心服务器配置
         
         public List<StartSceneConfig> Robots = new List<StartSceneConfig>();
         
@@ -26,6 +30,9 @@ namespace ET
             return this.ZoneScenesByName[zone][name];
         }
         
+        /// <summary>
+        /// 反序列化后的数据初始化处理
+        /// </summary>
         public override void AfterEndInit()
         {
             foreach (StartSceneConfig startSceneConfig in this.GetAll().Values)
@@ -48,6 +55,12 @@ namespace ET
                         break;
                     case SceneType.Robot:
                         this.Robots.Add(startSceneConfig);
+                        break;
+                    case SceneType.Realm://Realm网关负载均衡服务器的字典数据初始化
+                        this.Realms.Add(startSceneConfig.Zone, startSceneConfig);
+                        break;
+                    case SceneType.LoginCenter://登录中心服务器数据初始化
+                        this.LoginCenterConfig = startSceneConfig;
                         break;
                 }
             }

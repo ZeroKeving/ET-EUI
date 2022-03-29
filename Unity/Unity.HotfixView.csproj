@@ -49,7 +49,66 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\HotfixView\**\*.cs" />
+    <Compile Include="Codes\HotfixView\AppStart_Init.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Config\ConfigComponent_SetConfigLoader_Awake.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Config\ConfigLoader.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Global\GlobalComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Opera\OperaComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Scene\AfterCreateCurrentScene_AddComponent.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Scene\AfterCreateZoneScene_AddComponent.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Scene\SceneChangeComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Scene\SceneChangeStart_AddComponent.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\CommonUI\ESCommonUIViewSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\CommonUI\ESReuseUIViewSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgCreateRole\DlgCreateRoleViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgErrorWindow\DlgErrorWindowViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgHelper\DlgHelperViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgHintWindow\DlgHintWindowViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgLobby\DlgLobbyViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgLogin\DlgLoginViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgRedDot\DlgRedDotViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIBehaviour\DlgServerInfo\DlgServerInfoViewComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIItemBehaviour\Item_serverTestViewSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIItemBehaviour\Item_ServerViewSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UIItemBehaviour\Item_testViewSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\Common\ESCommonUISystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\Common\ESReuseUISystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgCreateRole\DlgCreateRoleSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgCreateRole\Event\DlgCreateRoleEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgErrorWindow\DlgErrorWindowSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgErrorWindow\Event\DlgErrorWindowEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgHelper\DlgHelperSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgHelper\Event\DlgHelperEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgHelper\Event\SceneChangeFinish_ShowCurrentSceneUI.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgHintWindow\DlgHintWindowSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgHintWindow\Event\DlgHintWindowEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgLobby\DlgLobbySystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgLobby\Event\DlgLobbyEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgLobby\Event\LoginFinish_CreateLobbyUI.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgLogin\DlgLoginSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgLogin\Event\DlgLoginEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgRedDot\DlgRedDotSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgRedDot\Event\DlgRedDotEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgServerInfo\DlgServerInfoSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\DlgServerInfo\Event\DlgServerInfoEventHandler.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\UIHelp\SceneChangeFinishEvent_CreateUIHelp.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\UIHelp\UIPopUpHelper.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\UIHelp\UIHelpEvent.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Unit\AfterUnitCreate_CreateUnitView.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Unit\AnimatorComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Unit\ChangePosition_SyncGameObjectPos.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Unit\ChangeRotation_SyncGameObjectRotation.cs" />
+    <Compile Include="Codes\HotfixView\Demo\Unit\GameObjectComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\EUIHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\EUIRootHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\IconHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\RedDotComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\RedDotHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\UIBaseWindowSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\UIComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\UIEventComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\EUI\UIPathComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\Resource\GameObjectHelper.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>
@@ -610,6 +669,7 @@
       <Name>Unity.ThirdParty</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

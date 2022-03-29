@@ -18,6 +18,7 @@ namespace ET
         public override void Destroy(UIEventComponent self)
         {
             self.UIEventHandlers.Clear();
+            self.AsyncButtonIsClicked = false;//初始化异步按钮点击锁
             UIEventComponent.Instance = null;
         }
     }
@@ -44,5 +45,16 @@ namespace ET
             Log.Error($"windowId : {windowID} is not have any uiEvent");
             return null;
         }
+
+        /// <summary>
+        /// 设置异步按钮点击事件锁
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="asyncButtonIsClicked"></param>
+        public static void SetUIAsyncButtonClicked(this UIEventComponent self, bool asyncButtonIsClicked)
+        {
+            self.AsyncButtonIsClicked = asyncButtonIsClicked;
+        }
     }
+
 }
