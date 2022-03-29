@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace ET
 {
@@ -15,5 +17,19 @@ namespace ET
 			}
 			return retVal.ToHex("x2");
 		}
+
+		/// <summary>
+		/// MD5加密方法
+		/// </summary>
+		/// <param name="content"></param>
+		/// <returns></returns>
+		public static string StringMD5(string content)
+        {
+			MD5 md5 = MD5.Create();
+			byte[] result = Encoding.Default.GetBytes(content);
+			byte[] output = md5.ComputeHash(result);
+			return BitConverter.ToString(output).Replace("-", "");
+
+        }
 	}
 }

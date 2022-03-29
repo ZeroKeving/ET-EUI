@@ -353,9 +353,12 @@ namespace ET
 
             Log.Debug("登录Gate成功");
 
+<<<<<<< HEAD
             //流程3：角色正式进入游戏逻辑服
 
 
+=======
+>>>>>>> my
             return ErrorCode.ERR_Success;
         }
     }

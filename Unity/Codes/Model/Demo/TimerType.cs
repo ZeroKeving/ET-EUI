@@ -6,6 +6,9 @@
         public const int MoveTimer = 1001;
         public const int AITimer = 1002;
         public const int SessionAcceptTimeout = 1003;
+
+        public const int AccountSessionCheckOutTime = 1004;//登录会话不活跃踢出时间
+        public const int PlayerOfflineOutTime = 1005;//定时踢出玩家时间
         // 不能超过10000
     }
 }

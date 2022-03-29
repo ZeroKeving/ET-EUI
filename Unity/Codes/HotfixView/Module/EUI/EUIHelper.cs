@@ -155,6 +155,40 @@ namespace ET
         
   #region UI按钮事件
 
+        
+
+        /// <summary>
+        /// 异步按键监听
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="action"></param>
+        public static void AddListenerAsync(this Button button,Func<ETTask> action)
+        {
+            button.onClick.RemoveAllListeners();//移除这个按钮所有的监听
+
+            async ETTask clickActionAsync()
+            {
+                UIEventComponent.Instance?.SetUIAsyncButtonClicked(true);//在UI事件组件单例里使用异步按键点击事件锁
+                await action();
+                UIEventComponent.Instance?.SetUIAsyncButtonClicked(false);
+            }
+
+            button.onClick.AddListener(() =>
+            {
+                if(UIEventComponent.Instance == null)//如果UI事件组件没有实例化则返回
+                {
+                    return;
+                }
+                
+                if(UIEventComponent.Instance.AsyncButtonIsClicked)//如果被锁了就返回
+                {
+                    return;
+                }
+
+                clickActionAsync().Coroutine();//以协程的方式启动这个内部方法
+            });
+        }
+
         public static void AddListener(this Toggle toggle, UnityAction<bool> selectEventHandler)
         {
             toggle.onValueChanged.RemoveAllListeners();

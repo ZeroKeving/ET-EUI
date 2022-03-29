@@ -238,4 +238,180 @@ message M2C_TransferMap // IActorLocationResponse
 	int32 Error = 91;
 	string Message = 92;
 }
- 
+
+//ResponseType A2C_LoginAccout
+message C2A_LoginAccount // IRequest
+{
+	int32 RpcId = 90;//如果要服务器回复这个消息就必须要加，且message后面的备注也需要加IRequest，而且标识固定是90，如果服务器不需要回复则不用加这个变量
+	string AccountName = 1;//账号
+	string Password = 2;//密码
+}
+
+message A2C_LoginAccout // IResponse
+{
+	int32 RpcId = 90;//message后面的备注标识表示服务器返回消息，必须要存在，并为90
+	int32 Error = 91;//必须要存在，并为91
+	string Message = 92;//必须要存在，并为92
+	string Token = 1;//登录标志令牌
+	int64 AccountId = 2;//登录Id
+}
+
+message A2C_Disconnect // IMessage
+{
+	int32 Error = 1;
+}
+
+message ServerInfoProto
+{
+	int32 Id = 1;//服务器id
+	int32 Status = 2;//服务器状态
+	string ServerName = 3;//服务器名称
+}
+
+//ResponseType A2C_GetSeverInfos
+message C2A_GetSeverInfos // IRequest
+{
+	int32 RpcId = 90;
+	string Token = 1;
+	int64 AccountId = 2;
+}
+
+message A2C_GetSeverInfos // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	repeated ServerInfoProto serverInfoList = 1;//服务器区服信息列表
+}
+
+message RoleInfoProto
+{
+	int64 Id = 1;
+	int32 State = 2;//角色状态
+	int64 AccountId = 3;//账号id
+	int64 LastLoginTime = 4;//上次登录的时间
+	int64 CreateTime = 5;//游戏角色创建的时间
+	int32 ServerId = 6;//游戏区服
+	string Name = 7;//角色名称
+}
+
+//ResponseType A2C_CreateRole
+message C2A_CreateRole // IRequest
+{
+	int32 RpcId = 90;
+	string Token = 1;//登录令牌
+	int64 AccountId = 2;//账号id
+	int32 ServerId = 3;//游戏区服
+	string Name = 4;//角色名称
+}
+
+message A2C_CreateRole // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	RoleInfoProto RoleInfo = 1;//角色信息
+}
+
+//ResponseType A2C_GetRoles
+message C2A_GetRoles // IRequest
+{
+	int32 RpcId = 90;
+	string Token = 1;
+	int64 AccountId = 2;
+	int32 ServerId = 3;
+}
+
+message A2C_GetRoles // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	repeated RoleInfoProto RoleInfo = 1;//角色信息列表
+}
+
+//ResponseType A2C_DeleteRole
+message C2A_DeleteRole // IRequest
+{
+	int32 RpcId = 90;
+	string Token = 1;
+	int64 AccountId = 2;
+	int64 RoleInfoId = 3;
+	int32 ServerId = 4;
+}
+
+message A2C_DeleteRole // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int64 DeletedRoleInfoId = 1;
+}
+
+//ResponseType A2C_DeleteAllRole
+message C2A_DeleteAllRole // IRequest
+{
+	int32 RpcId = 90;
+	string Token = 1;
+	int64 AccountId = 2;
+	int32 ServerId = 3;
+}
+
+message A2C_DeleteAllRole // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType A2C_GetRealmKey
+message C2A_GetRealmKey // IRequest
+{
+	int32 RpcId = 90;
+	string Token = 1;
+	int64 AccountId = 2;
+	int32 ServerId = 3;
+}
+
+message A2C_GetRealmKey // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	string RealmKey = 1;//Realm网关负载均衡服务器的令牌
+	string RealmAddress = 2;//Realm网关负载均衡服务器的地址
+}
+
+//ResponseType R2C_LoginRealm
+message C2R_LoginRealm // IRequest
+{
+	int32 RpcId = 90;
+	int64 AccountId = 1;
+	string RealmTokenKey = 2;//Realm网关负载均衡服务器的令牌
+}
+
+message R2C_LoginRealm // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	string GateSessionKey = 1;//Gate网关服务器的令牌
+	string GateAddress = 2;//Gate网关服务器的地址
+}
+
+//ResponseType G2C_LoginGameGate
+message C2G_LoginGameGate // IRequest
+{
+	int32 RpcId = 90;
+	string Key = 1;
+	int64 RoleId = 2;
+	int64 AccountId = 3;
+}
+
+message G2C_LoginGameGate // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int64 PlayerId = 1;//客户端在Gate网关进程上所创建的映射对象id
+}

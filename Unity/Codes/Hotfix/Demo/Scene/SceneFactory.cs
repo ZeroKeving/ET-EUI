@@ -10,7 +10,10 @@ namespace ET
 			zoneScene.AddComponent<CurrentScenesComponent>();
             zoneScene.AddComponent<ObjectWait>();
             zoneScene.AddComponent<PlayerComponent>();
-            
+            zoneScene.AddComponent<AccountInfoComponent>();//增加登录信息组件
+            zoneScene.AddComponent<ServerInfosComponent>();//增加游戏服务器区服信息组件
+            zoneScene.AddComponent<RoleInfosComponent>();//添加角色信息组件
+
             Game.EventSystem.Publish(new EventType.AfterCreateZoneScene() {ZoneScene = zoneScene});
             return zoneScene;
         }
