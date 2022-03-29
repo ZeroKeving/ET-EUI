@@ -6,16 +6,25 @@ namespace ET
 	[ActorMessageHandler]
 	public class M2M_UnitTransferRequestHandler : AMActorRpcHandler<Scene, M2M_UnitTransferRequest, M2M_UnitTransferResponse>
 	{
+		/// <summary>
+		/// 服务器单位传送请求
+		/// </summary>
+		/// <param name="scene">游戏逻辑服务器</param>
+		/// <param name="request"></param>
+		/// <param name="response"></param>
+		/// <param name="reply"></param>
+		/// <returns></returns>
 		protected override async ETTask Run(Scene scene, M2M_UnitTransferRequest request, M2M_UnitTransferResponse response, Action reply)
 		{
 			await ETTask.CompletedTask;
 			UnitComponent unitComponent = scene.GetComponent<UnitComponent>();
 			Unit unit = request.Unit;
-			
+
+			//将该单位添加进游戏逻辑服务器
 			unitComponent.AddChild(unit);
 			unitComponent.Add(unit);
 
-			foreach (Entity entity in request.Entitys)
+			foreach (Entity entity in request.Entitys)//将所有传送过来的组件全部添加到新的单位身上
 			{
 				unit.AddComponent(entity);
 			}

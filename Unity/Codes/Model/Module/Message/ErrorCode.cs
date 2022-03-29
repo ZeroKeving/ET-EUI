@@ -31,5 +31,13 @@ namespace ET
         public const int ERR_RequestSceneTypeError = 200013;//请求服务器类型错误
         public const int ERR_ConnectGateKeyError = 200014;//Gate网关令牌错误
         public const int ERR_OtherAccountLogin = 200015;//其他玩家登录该账号
+
+        public const int ERR_SessionPlayerError = 200016;//与玩家通信错误
+        public const int ERR_NonePlayerError = 200017;//未找到玩家映射
+        public const int ERR_PlayerSessionError = 200018;//玩家会话连接错误
+        public const int ERR_SessionStateError = 200019;//会话状态错误
+        public const int ERR_EnterGameError = 200020;//玩家进入游戏逻辑服出现问题
+        public const int ERR_ReEnterGameError = 200021;//二次登录失败
+        public const int ERR_ReEnterGameError2 = 200022;//二次登录失败底层错误
     }
 }

@@ -19,7 +19,7 @@ namespace ET
             }
 
             string key = RandomHelper.RandInt64().ToString() + TimeHelper.ServerNow().ToString();//Éú³ÉËæ»úµÄÁîÅÆ
-            scene.GetComponent<TokenComponent>().Remove(request.AccountId);//ÒÆ³ıµÇÂ¼ÁîÅÆ
+            scene.GetComponent<GateSessionKeyComponent>().Remove(request.AccountId);//ÒÆ³ıµÇÂ¼ÁîÅÆ
             scene.GetComponent<GateSessionKeyComponent>().Add(request.AccountId, key);//Ìí¼ÓGateÍø¹ØÁîÅÆ
             response.GateSessionKey = key;
             reply();

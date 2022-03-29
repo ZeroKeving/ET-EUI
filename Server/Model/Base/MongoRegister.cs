@@ -16,6 +16,7 @@ namespace ET
             ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
 
 #if SERVER
+            BsonSerializer.RegisterSerializer(typeof(Vector2), new StructBsonSerialize<Vector2>());
             BsonSerializer.RegisterSerializer(typeof(Vector3), new StructBsonSerialize<Vector3>());
             BsonSerializer.RegisterSerializer(typeof(Vector4), new StructBsonSerialize<Vector4>());
             BsonSerializer.RegisterSerializer(typeof(Quaternion), new StructBsonSerialize<Quaternion>());
@@ -23,9 +24,11 @@ namespace ET
 			BsonSerializer.RegisterSerializer(typeof(Quaternion), new StructBsonSerialize<Quaternion>());
             BsonSerializer.RegisterSerializer(typeof(Vector3), new StructBsonSerialize<Vector3>());
             BsonSerializer.RegisterSerializer(typeof(Vector4), new StructBsonSerialize<Vector4>());
+            BsonSerializer.RegisterSerializer(typeof(Vector2), new StructBsonSerialize<Vector2>());
 #else
             BsonSerializer.RegisterSerializer(typeof (Vector4), new StructBsonSerialize<Vector4>());
             BsonSerializer.RegisterSerializer(typeof (Vector3), new StructBsonSerialize<Vector3>());
+            BsonSerializer.RegisterSerializer(typeof (Vector2), new StructBsonSerialize<Vector2>());
 #endif
 
             var types = Game.EventSystem.GetTypes();

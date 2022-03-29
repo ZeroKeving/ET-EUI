@@ -50,7 +50,7 @@ namespace ET
                     scene.AddComponent<AOIManagerComponent>();
                     //scene.AddComponent<DBManagerComponent>();//如果是分布式多进程服务器，可以给Map添加上DB数据库控制组件
                     break;
-                case SceneType.Location://位置服务器
+                case SceneType.Location://定位服务器
                     scene.AddComponent<LocationComponent>();
                     break;
                 case SceneType.Account://账号登录服务器

@@ -9,7 +9,7 @@ namespace ET
 		
 		public void Add(Player player)
 		{
-			this.idPlayers.Add(player.Account, player);
+			this.idPlayers.Add(player.AccountId, player);
 		}
 
 		public Player Get(long id)

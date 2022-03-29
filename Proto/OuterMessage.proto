@@ -415,3 +415,17 @@ message G2C_LoginGameGate // IResponse
 	string Message = 92;
 	int64 PlayerId = 1;//客户端在Gate网关进程上所创建的映射对象id
 }
+
+//ResponseType G2C_EnterGame
+message C2G_EnterGame // IRequest
+{
+	int32 RpcId = 90;
+}
+
+message G2C_EnterGame // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int64 MyId = 1;//自己的UnitId
+}

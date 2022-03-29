@@ -16,14 +16,14 @@
     {
         public override void Awake(Player self, long a, long roleId)
         {
-            self.Account = a;
+            self.AccountId = a;
             self.UnitId = roleId;
         }
     }
 
     public sealed class Player : Entity, IAwake<string>, IAwake<long, long>
     {
-        public long Account { get; set; }//玩家账号id
+        public long AccountId { get; set; }//玩家账号id
 
         public long SessionInstanceId { get; set; }//玩家会话连接id
 

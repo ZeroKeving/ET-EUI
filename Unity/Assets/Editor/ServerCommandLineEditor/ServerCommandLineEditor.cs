@@ -3,13 +3,22 @@ using UnityEngine;
 
 namespace ET
 {
-    public static class ServerCommandLineEditor
+    public class ServerCommandLineEditor: EditorWindow
     {
-        [MenuItem("Tools/启动单进程服务器(仅windows可用)")]
-        public static void ShowWindow()
+        public void OnGUI()
         {
-            string arguments = $"Server.dll --Process=1 --Console=1";
-            ProcessHelper.Run("dotnet.exe", arguments, "../Bin/");
+            if (GUILayout.Button("启动"))
+            {
+                string arguments = $"";
+                ProcessHelper.Run("App.exe", arguments, "../Bin/");
+            }
+
+            if (GUILayout.Button("启动数据库"))
+            {
+                ProcessHelper.Run("mongod", @"--dbpath=db", "../Database/bin/");
+            }
+
+            GUILayout.EndHorizontal();
         }
     }
 }

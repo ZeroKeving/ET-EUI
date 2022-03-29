@@ -353,12 +353,28 @@ namespace ET
 
             Log.Debug("登录Gate成功");
 
-<<<<<<< HEAD
             //流程3：角色正式进入游戏逻辑服
 
+            G2C_EnterGame g2C_EnterGame = null;
+            try
+            {
+                g2C_EnterGame = (G2C_EnterGame)await gateSession.Call(new C2G_EnterGame() { });//与Gate网关服务器通信
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                zoneScene.GetComponent<SessionComponent>().Session.Dispose();
+                return ErrorCode.ERR_NetWorkError;
+            }
 
-=======
->>>>>>> my
+            if(g2C_EnterGame.Error != ErrorCode.ERR_Success)
+            {
+                Log.Error(g2C_EnterGame.Error.ToString());
+                return g2C_EnterGame.Error;
+            }
+
+            Log.Debug("角色进入游戏成功");
+
             return ErrorCode.ERR_Success;
         }
     }

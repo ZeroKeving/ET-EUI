@@ -65,6 +65,14 @@ namespace ET
                         return;
                     }
 
+                    //获取会话状态组件，并将其状态设置为普通
+                    SessionStateComponent sessionStateComponent = session.GetComponent<SessionStateComponent>();
+                    if(sessionStateComponent == null)
+                    {
+                        sessionStateComponent = session.AddComponent<SessionStateComponent>();
+                    }
+                    sessionStateComponent.State = SessionState.Normal;
+
                     Player player = scene.GetComponent<PlayerComponent>().Get(request.AccountId);//获得游戏客户端在Gate网关上的一个映射
 
                     if(player == null)

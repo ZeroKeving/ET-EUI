@@ -21,7 +21,7 @@ namespace ET
             string key = TimeHelper.ServerNow().ToString() + RandomHelper.RandInt64().ToString();//生成随机的令牌
             scene.GetComponent<TokenComponent>().Remove(request.AccountId);//移除登录令牌
             scene.GetComponent<TokenComponent>().Add(request.AccountId, key);//添加Realm网关令牌
-            response.RealmKey = key;
+            response.RealmKey = key.ToString();
             reply();
 
             await ETTask.CompletedTask;

@@ -21,7 +21,7 @@ namespace ET
 		
 		public Type SystemType()
 		{
-			return typeof(IAddComponentSystem);
+			return typeof(IGetComponentSystem);
 		}
 
 		public Type Type()
